@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
+<div>
 {% if user.is_authenticated %}
 Hi {{user.first_name}}
 {% endif %}
@@ -9,8 +9,10 @@ Hi {{user.first_name}}
     <input type="text" name="search" placeholder="Search tasks...">
     <button type="submit">Search</button>
 </form>
-{% for task in tasks %}
-    <h1>{{task.title}}</h1> 
-    
-{% endfor %}
+
+    {% for task in tasks %}
+        <h1 class = "task-name">{{task.title}}</h1> 
+        
+    {% endfor %}
+</div>
 {% endblock content %}
