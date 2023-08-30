@@ -2,12 +2,15 @@
 
 
 {% block content %}
+{% if user.is_authenticated %}
+Hi {{user.first_name}}
+{% endif %}
 <form action="{% url 'task-list' %}">
     <input type="text" name="search" placeholder="Search tasks...">
     <button type="submit">Search</button>
 </form>
 {% for task in tasks %}
-    <h1>{{task.title}}</h1>
+    <h1>{{task.title}}</h1> 
     
 {% endfor %}
 {% endblock content %}
